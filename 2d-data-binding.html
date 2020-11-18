@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<style>
+    #container {
+        height: 100px;
+        width: 100px;
+        background-color: black;
+    }
+</style>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+    <svg width="500" height="500">
+        <rect x="50" y="150" width="10" height="60" fill="red"></rect>
+        <rect x="70" y="150" width="10" height="40" fill="orange"></rect>
+        <rect x="90" y="150" width="10" height="20" fill="green"></rect>
+    </svg>
+
+    <svg width="500" height="500">
+        <line x1="0" y1="0" x2="100" y2="100" stroke="black" />
+    </svg>
+
+    <script>
+        var matrix = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12],
+            [13, 14, 15, 16]
+        ];
+
+        var tr = d3.select("body")
+            .append("table")  // adds <table>
+            .selectAll("tr")  // selects all <tr>
+            .data(matrix)      // joins matrix array 
+            .enter()           // create placeholders for each row in the array
+            .append("tr");// create <tr> in each placeholder
+
+        var td = tr.selectAll("td")
+            .data(function (d) {    // joins inner array of each row
+                console.log(d);
+                return d;
+            })
+            .enter()    // create placeholders for each element in an inner array
+            .append("td") // creates <td> in each placeholder
+            .text(function (d) {
+                console.log(d);
+                return d; // add value of each inner array as a text in <td>
+            });
+    </script>
+</body>
+
+</html>

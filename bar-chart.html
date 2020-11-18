@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<style>
+    svg rect {
+        fill: orange;
+    }
+
+    svg text {
+        fill:white;
+        font: 10px sans-serif;
+        text-anchor: end;
+    }
+</style>
+<body>
+    <svg class="chart" width="420" height="120">
+        <g transform="translate(0,0)">
+            <rect width="50" height="19"></rect>
+            <text x="47" y="9.5" dy=".35em">5</text>
+        </g>
+        <g transform="translate(0,20)">
+            <rect width="100" height="19"></rect>
+            <text x="97" y="9.5" dy=".35em">10</text>
+        </g>
+        <g transform="translate(0,40)">
+            <rect width="120" height="19"></rect>
+            <text x="117" y="9.5" dy=".35em">12</text>
+        </g>
+    </svg>
+
+    <script>
+
+        const scaleFector = 20;
+        const bars = [{w: 50, h: 19}, {w:100, h:19}, {w:120, h:19}];
+
+        var svg = d3.select('body')
+            .append('svg')
+            .attr('height', 120)
+            .attr('widht', 420);
+           
+        var g = svg.selectAll('g')
+            .data(bars)
+            .enter()
+            .append('g')
+            .attr('transform', (d, i) => 'translate(0,' + scaleFector * i + ')');
+
+        var rect = g.append('rect')
+            .data(bars)
+            .attr('width', (d) => d.w)
+            .attr('height', (d) => d.h)
+            
+    </script>
+
+</body>
+</html>
