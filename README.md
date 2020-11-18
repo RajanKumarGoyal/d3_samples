@@ -1,1 +1,3 @@
-# d3_samples
+# D3 JS
+
+Samples of D3 Js.
