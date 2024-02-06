@@ -14,11 +14,14 @@
     <script>
         var svg = d3.select("body").append("svg").attr("width", 500).attr("height", 500);
     
-        var bar1 = svg.append("rect").attr("fill", "black")
+        var bar1 = svg
+            .append("rect").attr("fill", "black")
             .attr("x", 100).attr("y", 20)
             .attr("height", 20).attr("width", 10)
     
-        var bar2 = svg.append("rect").attr("fill", "red")
+        var bar2 = svg
+            .append("rect")
+            .attr("fill", "red")
             .attr("x", 120).attr("y", 20)
             .attr("height", 20).attr("width", 10)
     
